@@ -42,22 +42,9 @@ class ParserTools
         return [$binaryFile, $httpCode];
     }
 
+
     static public function getFileNameByUrl(string $url): string
     {
-        /*
-        $fileExt = '';
-        switch ($fileType) {
-            case self::FILE_TYPE_HTML:
-                $fileExt = 'html';
-                break;
-
-        }
-
-        if (empty($fileExt)) {
-            throw new ExceptionComponent(sprintf('Не удалось задать ext для типа %s', $fileType));
-        }
-        */
-
         $fileName = rtrim($url, '/');
         $fileName = str_replace(['/', ':', '&'], '-', $fileName);
         $fileName = str_replace('?', '=', $fileName);
@@ -69,11 +56,11 @@ class ParserTools
     static public function saveFileBinary($fileName, $binaryContent): array
     {
         if (!$handle = fopen($fileName, 'w')) {
-            throw new ToolboxException(sprintf('Не могу открыть файл %s.', $fileName));
+            throw new ToolboxException(sprintf('Unable to open file: %s.', $fileName));
         }
 
         if (fwrite($handle, $binaryContent) === FALSE) {
-            throw new ToolboxException(sprintf('Не могу произвести запись в файл %s.', $fileName));
+            throw new ToolboxException(sprintf('Unable write to file: %s.', $fileName));
         }
 
         fclose($handle);
@@ -82,13 +69,6 @@ class ParserTools
         $fileSize = filesize($fileName);
 
         return [$fileBodyMd5, $fileSize];
-    }
-
-
-    static public function getPath(string $companyNick)
-    {
-        $path = \Yii::getAlias(sprintf('@parser/download/%s', $companyNick));
-        return $path;
     }
 }
 
