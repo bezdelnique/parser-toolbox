@@ -14,9 +14,6 @@ use Symfony\Component\CssSelector\CssSelectorConverter;
 
 class HtmlParser
 {
-    private $_domAsArray = [];
-
-
     public static function domHtmlAsArray(\DOMElement $doc): array
     {
         return (new self())->domAsArray($doc);
@@ -87,8 +84,6 @@ class HtmlParser
 
     public function domAsArray(\DOMElement $doc): array
     {
-        $this->_domAsArray = [];
-
         // $doc = new \DOMDocument();
         // $doc->load($content);
         // $root = $doc->;
