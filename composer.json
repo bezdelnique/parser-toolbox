@@ -17,9 +17,8 @@
     },
     "require": {
         "php": ">=7.2.0",
-        "symfony/css-selector": "^4.3@dev"
+        "symfony/css-selector": "^4.2"
     },
     "require-dev": {
     }
 }
-
