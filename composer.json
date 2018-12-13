@@ -1,0 +1,24 @@
+{
+    "name": "bezdelnique/parser-toolbox",
+    "description": "Parser toolbox library",
+    "type": "library",
+    "license": "MIT License",
+    "authors": [
+        {
+            "name": "Vitaly Belenky",
+            "email": "vitaly.belenky@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "bezdelnique\\parserToolbox\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.2.0",
+        "symfony/css-selector": "^4.3@dev"
+    },
+    "require-dev": {
+    }
+}
