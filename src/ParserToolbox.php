@@ -14,10 +14,14 @@ use Symfony\Component\CssSelector\CssSelectorConverter;
 
 class ParserToolbox
 {
-    public static function nodeChildNodesToInnerHTML($element): string
+    public static function nodeChildNodesToInnerHTML($node): string
     {
+        if (!$node->hasChildNodes()) {
+            return '';
+        }
+
         $innerHTML = '';
-        $children = $element->childNodes;
+        $children = $node->childNodes;
         foreach ($children as $child) {
             $tmpDom = new \DOMDocument();
             $tmpDom->preserveWhiteSpace = false;
